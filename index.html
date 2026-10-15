@@ -20,11 +20,9 @@
                         'washi-card': '#f7f4ee', <!-- 卡片稍深和紙色 -->
                         'sumi': '#2d2926',       <!-- 墨色文字 -->
                         'sumi-light': '#59544e', <!-- 淺墨色文字 -->
-                        'kikyo': '#3a4e68',      <!-- 桔梗色點綴 -->
                         'wood': '#b86b35',       <!-- 木色主調 -->
                         'wood-hover': '#9e5929', <!-- 木色 Hover -->
                         'gold-accent': '#c88a58',<!-- 金木色 -->
-                        'border-warm': '#e8ece9' <!-- 柔和邊框色 -->
                     },
                     fontFamily: {
                         'mincho': ['"Shippori Mincho"', 'serif'],
@@ -36,24 +34,13 @@
     </script>
 
     <style>
-        /* 背景柔和和紙圖案與和風細節 Custom CSS */
+        /* 背景柔和和紙圖案與和風細節 */
         body {
             background-color: #fcfbf9;
             color: #2d2926;
             font-family: 'Noto Sans JP', sans-serif;
             background-image: radial-gradient(#e5dfd5 0.75px, transparent 0.75px);
             background-size: 24px 24px;
-        }
-
-        /* 和風微波紋浮水印 (Seigaiha motif simulation) */
-        .bg-pattern-waves {
-            background-image: radial-gradient(circle at 50% 100%, rgba(184, 107, 53, 0.03) 0%, transparent 60%);
-        }
-
-        /* 垂直文字風格（可選用於小標籤或裝飾） */
-        .writing-vertical {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
         }
 
         /* 柔和漸變淡入動畫 */
@@ -78,8 +65,8 @@
 
         /* 日式圓環微旋轉脈衝動畫 */
         @keyframes softPulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.05); opacity: 0.35; }
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.05); opacity: 0.28; }
         }
 
         .pulse-ring {
@@ -91,18 +78,25 @@
 
     <!-- 背景動態裝飾（柔和圓環） -->
     <div class="fixed -top-32 -right-32 w-96 h-96 rounded-full bg-wood/10 pulse-ring pointer-events-none"></div>
-    <div class="fixed -bottom-32 -left-32 w-80 h-80 rounded-full bg-kikyo/5 pulse-ring pointer-events-none" style="animation-delay: -3s;"></div>
+    <div class="fixed -bottom-32 -left-32 w-80 h-80 rounded-full bg-wood/5 pulse-ring pointer-events-none" style="animation-delay: -3s;"></div>
 
     <!-- 頂部頁眉 LOGO 區域 -->
     <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center z-10">
         <div class="flex items-center space-x-3">
-            <!-- 公司標誌/徽章 SVG -->
-            <div class="w-10 h-10 rounded-full bg-wood/10 border border-wood/30 flex items-center justify-center text-wood font-mincho font-bold text-lg shadow-sm">
-                星
-            </div>
+            <!-- 矢量星羽圖標 (SVG) -->
+            <svg class="w-9 h-9 text-wood" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+                <circle cx="50" cy="50" r="42" stroke-width="4.5"/>
+                <path d="M25 72 C35 60, 48 40, 72 26 C68 40, 58 58, 42 68 C35 72, 28 73, 25 72 Z" fill="currentColor" fill-opacity="0.15" stroke-width="4"/>
+                <path d="M25 72 L72 26" stroke-width="3" stroke-linecap="round"/>
+                <!-- 羽毛紋理線條 -->
+                <path d="M42 54 L36 46 M50 46 L43 38 M58 38 L52 30" stroke-width="3" stroke-linecap="round"/>
+                <!-- 四角閃耀小星 (四角星形) -->
+                <path d="M 33 33 Q 33 27 27 27 Q 33 27 33 21 Q 33 27 39 27 Q 33 27 33 33 Z" fill="currentColor" stroke="none"/>
+                <path d="M 28 42 Q 28 39 25 39 Q 28 39 28 36 Q 28 39 31 39 Q 28 39 28 42 Z" fill="currentColor" stroke="none"/>
+            </svg>
             <div class="flex flex-col">
-                <span class="font-mincho text-2xl font-bold tracking-widest text-sumi">星羽堂</span>
-                <span class="text-[10px] tracking-widest text-sumi-light uppercase font-sans"> HOSHIHANE </span>
+                <span class="font-mincho text-xl sm:text-2xl font-bold tracking-widest text-sumi">星羽堂</span>
+                <span class="text-[9px] tracking-widest text-sumi-light uppercase font-sans">HOSHIHANEDOU</span>
             </div>
         </div>
 
@@ -114,85 +108,87 @@
     </header>
 
     <!-- 主要內容區 -->
-    <main class="flex-grow flex items-center justify-center px-6 py-12 z-10">
+    <main class="flex-grow flex items-center justify-center px-6 py-8 z-10">
         <div class="max-w-2xl w-full text-center space-y-10">
             
-            <!-- 標題與簡介區 -->
+            <!-- 大尺寸標誌展示 (星羽.svg 效果重現) -->
+            <div class="animate-fade-in flex flex-col items-center justify-center space-y-3">
+                <div class="p-4 rounded-full bg-washi-card/80 border border-wood/20 shadow-xs inline-block">
+                    <svg class="w-20 h-20 sm:w-24 sm:h-24 text-wood" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+                        <circle cx="50" cy="50" r="43" stroke-width="4"/>
+                        <path d="M24 73 C34 60, 48 38, 73 25 C68 40, 58 58, 41 68 C34 72, 27 73, 24 73 Z" fill="currentColor" fill-opacity="0.12" stroke-width="4"/>
+                        <path d="M24 73 L73 25" stroke-width="3.5" stroke-linecap="round"/>
+                        <path d="M42 54 L36 46 M50 46 L43 38 M58 38 L52 30" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M 33 33 Q 33 27 27 27 Q 33 27 33 21 Q 33 27 39 27 Q 33 27 33 33 Z" fill="currentColor" stroke="none"/>
+                        <path d="M 28 42 Q 28 39 25 39 Q 28 39 28 36 Q 28 39 31 39 Q 28 39 28 42 Z" fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 標題與品牌宣傳文案 -->
             <div class="space-y-6">
                 <!-- 細線裝飾 -->
                 <div class="flex items-center justify-center space-x-4 animate-fade-in">
                     <span class="h-[1px] w-12 bg-wood/30"></span>
-                    <span class="text-xs text-wood tracking-widest font-mincho">OPENING SOON</span>
+                    <span class="text-xs text-wood tracking-widest font-mincho">WEBSITE UNDER PREPARATION</span>
                     <span class="h-[1px] w-12 bg-wood/30"></span>
                 </div>
 
                 <!-- 主標題 -->
-                <h1 class="font-mincho text-3xl sm:text-4xl md:text-5xl font-normal text-sumi leading-relaxed tracking-wide animate-fade-in-delay-1">
-                    ただいま、ウェブサイトを<br class="hidden sm:inline" />準備しております
+                <h1 class="font-mincho text-2xl sm:text-4xl font-medium text-sumi leading-relaxed tracking-wide animate-fade-in-delay-1">
+                    ただいま、公式ウェブサイトを<br class="hidden sm:inline" />準備しております
                 </h1>
 
-                <!-- 溫暖的說明文字 -->
-                <p class="text-sumi-light text-sm sm:text-base leading-loose max-w-lg mx-auto font-sans font-light animate-fade-in-delay-2">
-                    皆様により見やすく、心地よい情報をお届けできるよう、ただいまウェブサイトの開設準備を進めております。<br class="hidden sm:inline" />
-                    公開まで今しばらくお待ちくださいませ。
-                </p>
-            </div>
-
-            <!-- 倒數計時器 (可設定預計上線時間) -->
-            <div class="animate-fade-in-delay-2 bg-washi-card/80 backdrop-blur-sm border border-wood/15 rounded-2xl p-6 sm:p-8 shadow-sm">
-                <h2 class="text-xs text-sumi-light font-mincho tracking-widest mb-4">公開予定まで</h2>
-                <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-6 max-w-md mx-auto">
-                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
-                        <span id="days" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
-                        <span class="text-[11px] text-sumi-light mt-1">日</span>
-                    </div>
-                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
-                        <span id="hours" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
-                        <span class="text-[11px] text-sumi-light mt-1">時間</span>
-                    </div>
-                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
-                        <span id="minutes" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
-                        <span class="text-[11px] text-sumi-light mt-1">分</span>
-                    </div>
-                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
-                        <span id="seconds" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
-                        <span class="text-[11px] text-sumi-light mt-1">秒</span>
-                    </div>
+                <!-- 品牌詳細介紹文案 (用戶指定) -->
+                <div class="text-sumi-light text-sm sm:text-base leading-loose max-w-xl mx-auto font-sans font-light animate-fade-in-delay-2 space-y-4 bg-washi-card/60 p-6 sm:p-8 rounded-2xl border border-wood/15">
+                    <p class="font-mincho text-base sm:text-lg text-sumi font-medium">
+                        暮らしを彩る、とっておきの文房具と雑貨。<br />
+                        日々の何気ない瞬間を、少しだけ特別に。
+                    </p>
+                    <p class="text-xs sm:text-sm text-sumi-light/90 leading-relaxed pt-2 border-t border-wood/10">
+                        当店では、使うたびに心が弾むような ステーショナリー（文房具）と、暮らしに優しく寄り添うホームウェア（インテリア雑貨） を厳選して取り揃えております。
+                    </p>
                 </div>
             </div>
 
-            <!-- 開幕通知訂閱表單 -->
-            <div class="animate-fade-in-delay-2 max-w-md mx-auto space-y-3">
-                <p class="text-xs text-sumi-light">サイト公開時に通知をご希望の方は、メールアドレスをご登録ください。</p>
-                <form id="notify-form" onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-2">
-                    <input 
-                        type="email" 
-                        id="email-input"
-                        required 
-                        placeholder="your-email@example.com" 
-                        class="flex-1 px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:outline-none focus:border-wood text-sm text-sumi placeholder-stone-400 transition-colors"
-                    />
-                    <button 
-                        type="submit" 
-                        class="px-6 py-3 bg-wood hover:bg-wood-hover text-white text-sm font-medium rounded-xl transition-all shadow-sm hover:shadow active:scale-98 whitespace-nowrap flex items-center justify-center"
-                    >
-                        通知を受け取る
-                    </button>
-                </form>
+            <!-- 店鋪與社群連結按鈕區 (Shopee, IG, Online Store) -->
+            <div class="animate-fade-in-delay-2 space-y-3 max-w-md mx-auto">
+                <p class="text-xs font-mincho text-sumi-light tracking-wider">【 オンラインショップ・SNS 】</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <!-- 網頁店鋪 -->
+                    <a href="https://shop.hoshihane.com" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center justify-center space-x-2 px-4 py-3 bg-wood text-white hover:bg-wood-hover rounded-xl shadow-xs hover:shadow transition-all text-xs font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <span>公式Web Shop</span>
+                    </a>
+
+                    <!-- 蝦皮店鋪 -->
+                    <a href="https://shopee.tw/hoshihanedou" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center justify-center space-x-2 px-4 py-3 bg-washi hover:bg-washi-card text-sumi border border-wood/20 rounded-xl shadow-2xs hover:border-wood/50 transition-all text-xs font-medium">
+                        <svg class="w-4 h-4 text-wood" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                        <span>蝦皮 Shopee</span>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/hoshihanedou/" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center justify-center space-x-2 px-4 py-3 bg-washi hover:bg-washi-card text-sumi border border-wood/20 rounded-xl shadow-2xs hover:border-wood/50 transition-all text-xs font-medium">
+                        <svg class="w-4 h-4 text-wood" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- 企業簡介折疊或資訊欄 (Company Info) -->
+            <!-- 企業簡介區塊 (Company Info) -->
             <div class="animate-fade-in-delay-2 pt-6 border-t border-stone-200/80 text-left max-w-lg mx-auto">
-                <h3 class="font-mincho text-base font-semibold text-sumi mb-3 text-center sm:text-left">【 会社概要 】</h3>
+                <h3 class="font-mincho text-sm font-semibold text-sumi mb-3 text-center sm:text-left tracking-wider">【 会社概要 】</h3>
                 <dl class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs sm:text-sm text-sumi-light leading-relaxed">
                     <dt class="font-medium text-sumi sm:col-span-1">会社名</dt>
-                    <dd class="sm:col-span-2">星羽堂株式会社 (hoshihane Co., Ltd.)</dd>
-
-                    <dt class="font-medium text-sumi sm:col-span-1">事業内容</dt>
-                    <dd class="sm:col-span-2">伝統工芸・モダン生活雑貨の企画、販売</dd>
+                    <dd class="sm:col-span-2">星羽堂株式会社</dd>
 
                     <dt class="font-medium text-sumi sm:col-span-1">お問い合わせ</dt>
-                    <dd class="sm:col-span-2">info@hoshihane.com</dd>
+                    <dd class="sm:col-span-2">
+                        <a href="mailto:info@hoshihane.com" class="text-wood hover:underline">info@hoshihane.com</a>
+                    </dd>
                 </dl>
             </div>
 
@@ -201,103 +197,11 @@
 
     <!-- 頁腳 -->
     <footer class="w-full text-center py-6 text-xs text-sumi-light/70 border-t border-stone-200/50 z-10">
-        <p>&copy; <span id="year"></span> 星羽堂 All Rights Reserved.</p>
+        <p>&copy; <span id="year"></span> 星羽堂株式会社 All Rights Reserved.</p>
     </footer>
 
-    <!-- 自訂 Toast 訊息提示元件 -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300 bg-sumi text-washi px-5 py-3 rounded-xl shadow-lg flex items-center space-x-3 z-50 pointer-events-none">
-        <svg class="w-5 h-5 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span id="toast-message" class="text-xs sm:text-sm">ご登録ありがとうございます。</span>
-    </div>
-
-    <!-- JavaScript 腳本區塊 -->
     <script>
-        // Set current year
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        /* ========================================================
-           1. 倒數計時器設定 (Countdown Timer Setup)
-           您可以更改下面的 targetDate 設定預計公開的日期時間
-           ======================================================== */
-        // 設定 targetDate 為未來第 30 天 (請自行替換為實際日期，例: '2026-12-31T00:00:00')
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 30);
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-wood font-mincho text-lg">まもなく公開いたします</div>';
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        /* ========================================================
-           2. 電子報/通知訂閱表單處理 (Form Handling)
-           此處為純前端示範，若需對接 Cloudflare Workers 或 Formspree
-           可在 handleSubscribe 函式內加入 fetch 請求。
-           ======================================================== */
-        function handleSubscribe(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('email-input');
-            const email = emailInput.value;
-
-            if (email) {
-                // 顯示自訂 Toast 通知
-                showToast("ご登録ありがとうございます。準備が整い次第ご連絡いたします。");
-                emailInput.value = '';
-            }
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.textContent = message;
-            
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 4000);
-        }
     </script>
-
-    <!-- 
-    ========================================================================
-     Cloudflare Pages 部署說明 (Deployment Guide)
-    ========================================================================
-    
-    【方法一：Git 儲存庫自動部署 (推薦)】
-    1. 將此單一 `index.html` 檔案上傳至 GitHub / GitLab 專案根目錄。
-    2. 登入 Cloudflare 儀表板 -> 點擊「Workers & Pages」->「Create application」->「Pages」。
-    3. 連接您的 GitHub 帳號，選擇包含此 `index.html` 的專案。
-    4. 「Build settings」保留為預設 (Framework preset 選擇 None，Build command 留空，Build output directory 留空或 `/`)。
-    5. 點擊「Save and Deploy」即可完成部署！
-
-    【方法二：直接拖拽檔案上傳 (Direct Upload)】
-    1. 將此檔案命名為 `index.html`，並放進一個資料夾中。
-    2. 登入 Cloudflare 儀表板 ->「Workers & Pages」->「Create application」->「Pages」->「Upload assets」。
-    3. 設定專案名稱後，直接將包含 `index.html` 的資料夾拖拽上傳。
-    4. 點擊部署，幾秒鐘內即可完成網站開通！
-    ========================================================================
-    -->
 </body>
 </html>
