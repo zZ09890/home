@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星羽堂 - ウェブサイト準備中</title>
+    <!-- Google Fonts: 導入 Noto Sans JP (內文) 與 Shippori Mincho (精緻明朝體/標題) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'washi': '#fcfbf9',      <!-- 暖和紙色背景 -->
+                        'washi-card': '#f7f4ee', <!-- 卡片稍深和紙色 -->
+                        'sumi': '#2d2926',       <!-- 墨色文字 -->
+                        'sumi-light': '#59544e', <!-- 淺墨色文字 -->
+                        'kikyo': '#3a4e68',      <!-- 桔梗色點綴 -->
+                        'wood': '#b86b35',       <!-- 木色主調 -->
+                        'wood-hover': '#9e5929', <!-- 木色 Hover -->
+                        'gold-accent': '#c88a58',<!-- 金木色 -->
+                        'border-warm': '#e8ece9' <!-- 柔和邊框色 -->
+                    },
+                    fontFamily: {
+                        'mincho': ['"Shippori Mincho"', 'serif'],
+                        'sans': ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 背景柔和和紙圖案與和風細節 Custom CSS */
+        body {
+            background-color: #fcfbf9;
+            color: #2d2926;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-image: radial-gradient(#e5dfd5 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
+
+        /* 和風微波紋浮水印 (Seigaiha motif simulation) */
+        .bg-pattern-waves {
+            background-image: radial-gradient(circle at 50% 100%, rgba(184, 107, 53, 0.03) 0%, transparent 60%);
+        }
+
+        /* 垂直文字風格（可選用於小標籤或裝飾） */
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* 柔和漸變淡入動畫 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* 日式圓環微旋轉脈衝動畫 */
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.05); opacity: 0.35; }
+        }
+
+        .pulse-ring {
+            animation: softPulse 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-wood selection:text-white">
+
+    <!-- 背景動態裝飾（柔和圓環） -->
+    <div class="fixed -top-32 -right-32 w-96 h-96 rounded-full bg-wood/10 pulse-ring pointer-events-none"></div>
+    <div class="fixed -bottom-32 -left-32 w-80 h-80 rounded-full bg-kikyo/5 pulse-ring pointer-events-none" style="animation-delay: -3s;"></div>
+
+    <!-- 頂部頁眉 LOGO 區域 -->
+    <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center z-10">
+        <div class="flex items-center space-x-3">
+            <!-- 公司標誌/徽章 SVG -->
+            <div class="w-10 h-10 rounded-full bg-wood/10 border border-wood/30 flex items-center justify-center text-wood font-mincho font-bold text-lg shadow-sm">
+                星
+            </div>
+            <div class="flex flex-col">
+                <span class="font-mincho text-2xl font-bold tracking-widest text-sumi">星羽堂</span>
+                <span class="text-[10px] tracking-widest text-sumi-light uppercase font-sans">SEIUDO</span>
+            </div>
+        </div>
+
+        <!-- 和風「準備中」狀態標籤 -->
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-washi-card border border-wood/20 text-xs text-wood font-medium shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-wood animate-ping"></span>
+            <span>ただいま準備中</span>
+        </div>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main class="flex-grow flex items-center justify-center px-6 py-12 z-10">
+        <div class="max-w-2xl w-full text-center space-y-10">
+            
+            <!-- 標題與簡介區 -->
+            <div class="space-y-6">
+                <!-- 細線裝飾 -->
+                <div class="flex items-center justify-center space-x-4 animate-fade-in">
+                    <span class="h-[1px] w-12 bg-wood/30"></span>
+                    <span class="text-xs text-wood tracking-widest font-mincho">OPENING SOON</span>
+                    <span class="h-[1px] w-12 bg-wood/30"></span>
+                </div>
+
+                <!-- 主標題 -->
+                <h1 class="font-mincho text-3xl sm:text-4xl md:text-5xl font-normal text-sumi leading-relaxed tracking-wide animate-fade-in-delay-1">
+                    ただいま、ウェブサイトを<br class="hidden sm:inline" />準備しております
+                </h1>
+
+                <!-- 溫暖的說明文字 -->
+                <p class="text-sumi-light text-sm sm:text-base leading-loose max-w-lg mx-auto font-sans font-light animate-fade-in-delay-2">
+                    皆様により見やすく、心地よい情報をお届けできるよう、ただいまウェブサイトの開設準備を進めております。<br class="hidden sm:inline" />
+                    公開まで今しばらくお待ちくださいませ。
+                </p>
+            </div>
+
+            <!-- 倒數計時器 (可設定預計上線時間) -->
+            <div class="animate-fade-in-delay-2 bg-washi-card/80 backdrop-blur-sm border border-wood/15 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <h2 class="text-xs text-sumi-light font-mincho tracking-widest mb-4">公開予定まで</h2>
+                <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-6 max-w-md mx-auto">
+                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
+                        <span id="days" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
+                        <span class="text-[11px] text-sumi-light mt-1">日</span>
+                    </div>
+                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
+                        <span id="hours" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
+                        <span class="text-[11px] text-sumi-light mt-1">時間</span>
+                    </div>
+                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
+                        <span id="minutes" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
+                        <span class="text-[11px] text-sumi-light mt-1">分</span>
+                    </div>
+                    <div class="flex flex-col items-center p-3 rounded-lg bg-washi border border-stone-200/60 shadow-2xs">
+                        <span id="seconds" class="font-mincho text-2xl sm:text-3xl text-sumi font-medium">00</span>
+                        <span class="text-[11px] text-sumi-light mt-1">秒</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 開幕通知訂閱表單 -->
+            <div class="animate-fade-in-delay-2 max-w-md mx-auto space-y-3">
+                <p class="text-xs text-sumi-light">サイト公開時に通知をご希望の方は、メールアドレスをご登録ください。</p>
+                <form id="notify-form" onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-2">
+                    <input 
+                        type="email" 
+                        id="email-input"
+                        required 
+                        placeholder="your-email@example.com" 
+                        class="flex-1 px-4 py-3 rounded-xl bg-washi border border-stone-300 focus:outline-none focus:border-wood text-sm text-sumi placeholder-stone-400 transition-colors"
+                    />
+                    <button 
+                        type="submit" 
+                        class="px-6 py-3 bg-wood hover:bg-wood-hover text-white text-sm font-medium rounded-xl transition-all shadow-sm hover:shadow active:scale-98 whitespace-nowrap flex items-center justify-center"
+                    >
+                        通知を受け取る
+                    </button>
+                </form>
+            </div>
+
+            <!-- 企業簡介折疊或資訊欄 (Company Info) -->
+            <div class="animate-fade-in-delay-2 pt-6 border-t border-stone-200/80 text-left max-w-lg mx-auto">
+                <h3 class="font-mincho text-base font-semibold text-sumi mb-3 text-center sm:text-left">【 会社概要 】</h3>
+                <dl class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs sm:text-sm text-sumi-light leading-relaxed">
+                    <dt class="font-medium text-sumi sm:col-span-1">会社名</dt>
+                    <dd class="sm:col-span-2">株式会社 星羽堂 (Seiudo Co., Ltd.)</dd>
+
+                    <dt class="font-medium text-sumi sm:col-span-1">事業内容</dt>
+                    <dd class="sm:col-span-2">伝統工芸・モダン生活雑貨の企画、販売</dd>
+
+                    <dt class="font-medium text-sumi sm:col-span-1">お問い合わせ</dt>
+                    <dd class="sm:col-span-2">info@seiudo-example.jp</dd>
+                </dl>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 頁腳 -->
+    <footer class="w-full text-center py-6 text-xs text-sumi-light/70 border-t border-stone-200/50 z-10">
+        <p>&copy; <span id="year"></span> 星羽堂 All Rights Reserved.</p>
+    </footer>
+
+    <!-- 自訂 Toast 訊息提示元件 -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300 bg-sumi text-washi px-5 py-3 rounded-xl shadow-lg flex items-center space-x-3 z-50 pointer-events-none">
+        <svg class="w-5 h-5 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span id="toast-message" class="text-xs sm:text-sm">ご登録ありがとうございます。</span>
+    </div>
+
+    <!-- JavaScript 腳本區塊 -->
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /* ========================================================
+           1. 倒數計時器設定 (Countdown Timer Setup)
+           您可以更改下面的 targetDate 設定預計公開的日期時間
+           ======================================================== */
+        // 設定 targetDate 為未來第 30 天 (請自行替換為實際日期，例: '2026-12-31T00:00:00')
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 30);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-wood font-mincho text-lg">まもなく公開いたします</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        /* ========================================================
+           2. 電子報/通知訂閱表單處理 (Form Handling)
+           此處為純前端示範，若需對接 Cloudflare Workers 或 Formspree
+           可在 handleSubscribe 函式內加入 fetch 請求。
+           ======================================================== */
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value;
+
+            if (email) {
+                // 顯示自訂 Toast 通知
+                showToast("ご登録ありがとうございます。準備が整い次第ご連絡いたします。");
+                emailInput.value = '';
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+
+    <!-- 
+    ========================================================================
+     Cloudflare Pages 部署說明 (Deployment Guide)
+    ========================================================================
+    
+    【方法一：Git 儲存庫自動部署 (推薦)】
+    1. 將此單一 `index.html` 檔案上傳至 GitHub / GitLab 專案根目錄。
+    2. 登入 Cloudflare 儀表板 -> 點擊「Workers & Pages」->「Create application」->「Pages」。
+    3. 連接您的 GitHub 帳號，選擇包含此 `index.html` 的專案。
+    4. 「Build settings」保留為預設 (Framework preset 選擇 None，Build command 留空，Build output directory 留空或 `/`)。
+    5. 點擊「Save and Deploy」即可完成部署！
+
+    【方法二：直接拖拽檔案上傳 (Direct Upload)】
+    1. 將此檔案命名為 `index.html`，並放進一個資料夾中。
+    2. 登入 Cloudflare 儀表板 ->「Workers & Pages」->「Create application」->「Pages」->「Upload assets」。
+    3. 設定專案名稱後，直接將包含 `index.html` 的資料夾拖拽上傳。
+    4. 點擊部署，幾秒鐘內即可完成網站開通！
+    ========================================================================
+    -->
+</body>
+</html>
